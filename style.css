@@ -14,16 +14,18 @@ body {
   background: linear-gradient(135deg, #1c1f27, #34495e);
   font-family: 'Arial', sans-serif;
   color: #ecf0f1;
+  padding: 20px; /* Ensure padding on smaller screens */
 }
 
 /* Container styling */
 .clock-container {
   background: linear-gradient(145deg, #485563, #29323c);  /* Subtle dark gradient */
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);  /* Deep shadow for elevated look */
   transition: transform 0.4s ease;
   border: 2px solid rgba(255, 255, 255, 0.1);  /* Soft border for definition */
+  max-width: 90%;  /* Ensure the container adapts to smaller screens */
 }
 
 .clock-container:hover {
@@ -87,7 +89,28 @@ body {
   }
 }
 
-/* Responsive design - adjust font sizes for smaller screens */
+/* Media Queries for Responsiveness */
+
+/* For tablet screens (up to 1024px) */
+@media (max-width: 1024px) {
+  .clock {
+      gap: 40px;
+  }
+
+  .name {
+      font-size: 1.2rem;
+  }
+
+  .value {
+      font-size: 4rem;
+  }
+
+  .clock-container {
+      padding: 15px;
+  }
+}
+
+/* For smaller screens like phones (up to 768px) */
 @media (max-width: 768px) {
   .clock {
       gap: 30px;
@@ -99,5 +122,30 @@ body {
 
   .value {
       font-size: 3rem;
+  }
+
+  .clock-container {
+      padding: 10px;
+  }
+}
+
+/* For extra-small screens like very small mobile devices (up to 480px) */
+@media (max-width: 480px) {
+  .clock {
+      flex-direction: column; /* Stack hours, minutes, and seconds vertically */
+      gap: 20px;
+  }
+
+  .name {
+      font-size: 0.9rem;
+  }
+
+  .value {
+      font-size: 2.5rem;
+  }
+
+  .clock-container {
+      padding: 10px;
+      width: 100%;
   }
 }
